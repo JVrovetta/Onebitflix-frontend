@@ -28,13 +28,12 @@
 
   .navBtn {
     margin: 0px 5px;
-    border-color: transparent;
     color: $lightGray;
+    border-color: transparent;
 
     &:hover {
       border-color: $lightRed;
       color: #ffffff;
-      background-color: transparent;
     }
   }
 }
