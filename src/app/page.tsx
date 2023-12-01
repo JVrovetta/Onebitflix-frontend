@@ -6,6 +6,7 @@ import HeaderNoAuth from "@/components/HomeNoAuth/HeaderNoAuth"
 import PresentationSection from "@/components/HomeNoAuth/PresentationSection"
 import CardsSection from "@/components/HomeNoAuth/CardsSection"
 import SlideSection from "@/components/HomeNoAuth/SlidesSection"
+import Footer from "@/components/common/Footer"
 
 export const metadata: Metadata = {
   title: "OneBitFlix",
@@ -39,6 +40,7 @@ const HomeNoAuth = async () => {
         </div>
         <CardsSection />
         <SlideSection newestCourses={newestCourses} />
+        <Footer />
       </main>
     </>
   )

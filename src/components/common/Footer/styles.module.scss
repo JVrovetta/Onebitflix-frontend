@@ -1,0 +1,15 @@
+@import "@/styles/colors.module.scss";
+
+.footerLogo {
+  width: 220px;
+}
+
+.footerLink {
+  text-decoration: none;
+  color: $mediumGray;
+  transition: .3s;
+
+  &:hover {
+    color: $lightGray;
+  }
+}
