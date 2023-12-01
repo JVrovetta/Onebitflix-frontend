@@ -5,6 +5,7 @@ import { Metadata } from "next"
 import HeaderNoAuth from "@/components/HomeNoAuth/HeaderNoAuth"
 import PresentationSection from "@/components/HomeNoAuth/PresentationSection"
 import CardsSection from "@/components/HomeNoAuth/CardsSection"
+import SlideSection from "@/components/HomeNoAuth/SlidesSection"
 
 export const metadata: Metadata = {
   title: "OneBitFlix",
@@ -16,7 +17,19 @@ export const metadata: Metadata = {
   }
 }
 
-const HomeNoAuth = () => {
+const getNewestCourses = async () => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASEURL}/courses/newest`, {
+    next: {
+      revalidate: 3600 * 24
+    }
+  })
+
+  return res.json()
+}
+
+const HomeNoAuth = async () => {
+  const newestCourses = await getNewestCourses()
+
   return (
     <>
       <main>
@@ -25,6 +38,7 @@ const HomeNoAuth = () => {
           <PresentationSection />
         </div>
         <CardsSection />
+        <SlideSection newestCourses={newestCourses} />
       </main>
     </>
   )
