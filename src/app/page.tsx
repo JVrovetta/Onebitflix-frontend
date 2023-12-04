@@ -7,6 +7,7 @@ import PresentationSection from "@/components/HomeNoAuth/PresentationSection"
 import CardsSection from "@/components/HomeNoAuth/CardsSection"
 import SlideSection from "@/components/HomeNoAuth/SlidesSection"
 import Footer from "@/components/common/Footer"
+import AOSComponent from "@/components/common/AOSComponent"
 
 export const metadata: Metadata = {
   title: "OneBitFlix",
@@ -34,12 +35,18 @@ const HomeNoAuth = async () => {
   return (
     <>
       <main>
-        <div className={styles.mainBackground}>
-          <HeaderNoAuth />
-          <PresentationSection />
-        </div>
-        <CardsSection />
-        <SlideSection newestCourses={newestCourses} />
+        <AOSComponent>
+          <div className={styles.mainBackground} data-aos="fade-zoom-in" data-aos-duration="1350">
+            <HeaderNoAuth />
+            <PresentationSection />
+          </div>
+          <div data-aos="fade-right" data-aos-duration="1200">
+            <CardsSection />
+          </div>
+          <div data-aos="fade-up" data-aos-duration="1200">
+            <SlideSection newestCourses={newestCourses} />
+          </div>
+        </AOSComponent>
         <Footer />
       </main>
     </>
