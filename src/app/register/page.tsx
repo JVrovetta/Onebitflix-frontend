@@ -3,6 +3,8 @@ import styles from "@/styles/registerLogin.module.scss"
 // Components
 import { Metadata } from "next"
 import HeaderGeneric from "@/components/common/HeaderGeneric"
+import RegisterForm from "@/components/Register/RegisterForm"
+import Footer from "@/components/common/Footer"
 
 export const metadata: Metadata = {
   title: "Onebitflix - Register"
@@ -11,8 +13,10 @@ export const metadata: Metadata = {
 const Register = () => {
   return (
     <>
-      <main>
+      <main className={styles.main}>
         <HeaderGeneric btnContent="Login Here" btnUrl="/login" />
+        <RegisterForm />
+        <Footer />
       </main>
     </>
   )
