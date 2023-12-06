@@ -1,14 +1,14 @@
 "use client"
 
 // Styles
-import styles from "./styles.module.scss"
+import styles from "@/styles/registerLogin.module.scss"
 // Components
 import { Container, Form, FormGroup, Label, Input, Button } from "reactstrap"
 import { FormEvent, useState } from "react"
 import { useRouter } from "next/navigation"
+import ToastComponent from "@/components/common/ToastComponent"
 // Services
 import authService from "@/services/authService"
-import ToastComponent from "@/components/common/Toast"
 
 const RegisterForm = () => {
   const router = useRouter()
@@ -37,7 +37,7 @@ const RegisterForm = () => {
 
     const { data, status } = await authService.register(params)
     if (status === 201) {
-      router.push("/login?registred=true")
+      router.push("/auth/login?registred=true")
     } else {
       setToastIsOpen(true);
       setTimeout(() => { setToastIsOpen(false) }, 1000 * 3)
