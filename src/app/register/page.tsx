@@ -5,6 +5,8 @@ import { Metadata } from "next"
 import HeaderGeneric from "@/components/common/HeaderGeneric"
 import RegisterForm from "@/components/Register/RegisterForm"
 import Footer from "@/components/common/Footer"
+// Interfaces
+
 
 export const metadata: Metadata = {
   title: "Onebitflix - Register"

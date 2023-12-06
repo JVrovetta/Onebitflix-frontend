@@ -4,14 +4,53 @@
 import styles from "./styles.module.scss"
 // Components
 import { Container, Form, FormGroup, Label, Input, Button } from "reactstrap"
+import { FormEvent, useState } from "react"
+import { useRouter } from "next/navigation"
+// Services
+import authService from "@/services/authService"
+import ToastComponent from "@/components/common/Toast"
 
 const RegisterForm = () => {
+  const router = useRouter()
+  const [toastIsOpen, setToastIsOpen] = useState(false)
+  const [toastMessage, setToastMessage] = useState("")
+
+  const handleRegister = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+
+    const formData = new FormData(event.currentTarget)
+    const firstName = formData.get("firstName")!.toString()
+    const lastName = formData.get("lastName")!.toString()
+    const phone = formData.get("phone")!.toString()
+    const email = formData.get("email")!.toString()
+    const birth = formData.get("birth")!.toString()
+    const password = formData.get("password")!.toString()
+    const passwordConfirm = formData.get("passwordConfirm")!.toString()
+    const params = { firstName, lastName, phone, email, birth, password }
+
+    if (password !== passwordConfirm) {
+      setToastIsOpen(true);
+      setTimeout(() => { setToastIsOpen(false) }, 1000 * 3)
+      setToastMessage("Password and confirmation don't match")
+      return;
+    }
+
+    const { data, status } = await authService.register(params)
+    if (status === 201) {
+      router.push("/login?registred=true")
+    } else {
+      setToastIsOpen(true);
+      setTimeout(() => { setToastIsOpen(false) }, 1000 * 3)
+      setToastMessage(data.error)
+    }
+  }
+
   return (
     <>
       <script src="https://jsuites.net/v4/jsuites.js"></script>
       <Container className="py-5">
         <p className={styles.formTitle}><strong>Welcome to OneBitFlix!</strong></p>
-        <Form className={styles.form}>
+        <Form className={styles.form} onSubmit={handleRegister}>
           <p className="text-center"><strong>Create your account!</strong></p>
 
           <FormGroup>
@@ -109,6 +148,7 @@ const RegisterForm = () => {
           <Button type="submit" outline className={styles.formBtn}>REGISTER</Button>
         </Form>
       </Container>
+      <ToastComponent isOpen={toastIsOpen} message={toastMessage} color="bg-danger" />
     </>
   )
 }
