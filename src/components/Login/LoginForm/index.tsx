@@ -17,6 +17,12 @@ const LoginForm = () => {
   const [toastColor, setToastColor] = useState("")
 
   useEffect(() => {
+    if (sessionStorage.getItem("onebitflix-token")) {
+      router.push("/home")
+    }
+  }, [])
+
+  useEffect(() => {
     const registerSuccess = params.get('registred')
     console.log(registerSuccess);
 

@@ -1,0 +1,61 @@
+@import "@/styles/colors.module.scss";
+@import "@/styles/common.module.scss";
+
+.logoNav {
+  width: 160px;
+  height: auto;
+}
+
+.searchIcon {
+  width: 26px;
+  height: auto;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.userProfile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 24px;
+  text-transform: uppercase;
+  color: #000000;
+  margin-left: 14px;
+  min-width: 45px;
+  min-height: 45px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.input {
+  @extend .commonInput;
+}
+
+.modal {
+  background-color: $darkGray;
+  border-radius: 5px;
+  box-shadow: 8px 6px 4px #0000007c;
+  text-align: center;
+}
+
+.modalUserProfile {
+  @extend .userProfile;
+  font-size: 36px;
+  min-width: 75px;
+  min-height: 75px;
+  margin: 0;
+}
+
+.modalLink {
+  text-decoration: none;
+  font-weight: bold;
+  color: #ffffff;
+  cursor: pointer;
+  transition: .4s;
+
+  &:hover {
+    color: $lightRed
+  }
+}
