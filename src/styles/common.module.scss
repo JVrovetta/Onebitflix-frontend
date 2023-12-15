@@ -1,0 +1,24 @@
+.commonInput {
+  border-color: $darkGray;
+  color: #ffffff;
+  background-color: transparent;
+
+  &::placeholder {
+    color: $lightGray;
+  }
+
+  &:focus {
+    background-color: transparent;
+    border-color: $lightGray;
+    color: #ffffff;
+    box-shadow: none;
+  }
+}
+
+.commonButton {
+  &:hover {
+    border-color: $lightRed;
+    color: $lightGray;
+    background-color: transparent;
+  }
+}

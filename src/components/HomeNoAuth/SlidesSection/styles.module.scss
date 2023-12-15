@@ -1,4 +1,5 @@
 @import "@/styles/colors.module.scss";
+@import "@/styles/common.module.scss";
 
 .sectionTitle {
   text-align: center;
@@ -7,9 +8,5 @@
 }
 
 .slideSectionBtn {
-  &:hover {
-    border-color: $lightRed;
-    color: $lightGray;
-    background-color: transparent;
-  }
+  @extend .commonButton
 }
