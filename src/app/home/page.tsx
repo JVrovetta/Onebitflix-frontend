@@ -1,5 +1,5 @@
 // Components
-import HeaderAuth from "@/components/common/HeaderAuth"
+import FeaturedSection from "@/components/HomeAuth/FeaturedSection"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -10,7 +10,7 @@ const HomeAuth = () => {
   return (
     <>
       <main>
-        <HeaderAuth />
+        <FeaturedSection />
       </main>
     </>
   )

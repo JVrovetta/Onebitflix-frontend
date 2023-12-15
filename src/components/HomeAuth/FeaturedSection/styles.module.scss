@@ -1,0 +1,52 @@
+@import "@/styles/colors.module.scss";
+@import "@/styles/common.module.scss";
+
+.title {
+  font-size: 50px;
+  font-weight: bold;
+  line-height: 50px;
+  max-width: 660px;
+}
+
+.description {
+  font-size: 21px;
+  max-width: 600px;
+  height: 120px;
+  overflow: hidden;
+  text-overflow: clip;
+  margin: 40px 0 30px 0;
+  color: $lightGray;
+}
+
+.button {
+  @extend .commonButton;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-weight: bold;
+  padding: 10px 35px;
+  width: fit-content;
+}
+
+.buttonImg {
+  width: 11px;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 30px;
+    line-height: 30px;
+  }
+
+  .description {
+    font-size: 18px;
+    margin: 25px 0 20px 0;
+  }
+
+  .button {
+    padding: 10px 20px;
+  }
+}
