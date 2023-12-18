@@ -16,14 +16,12 @@
 .form {
   width: 600px;
   padding: 50px;
-  border: 1px solid $darkGray;
   margin: 0 auto;
+  border: 1px solid $darkGray;
 }
 
 .label {
-  font-size: 14px;
-  font-weight: bold;
-  padding-top: 20px;
+  @extend .commonLabel;
 }
 
 .input {

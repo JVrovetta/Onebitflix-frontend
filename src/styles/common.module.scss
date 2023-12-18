@@ -1,3 +1,9 @@
+.commonLabel {
+  font-size: 14px;
+  font-weight: bold;
+  padding-top: 20px;
+}
+
 .commonInput {
   border-color: $darkGray;
   color: #ffffff;
@@ -16,9 +22,24 @@
 }
 
 .commonButton {
+  border-color: $darkGray;
+
   &:hover {
     border-color: $lightRed;
     color: $lightGray;
     background-color: transparent;
   }
+}
+
+.commonUserAbbreviation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: bold;
+  color: #000000;
+  min-width: 70px;
+  min-height: 70px;
+  border-radius: 50%;
+  background-color: #ffffff;
 }

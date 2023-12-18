@@ -1,0 +1,138 @@
+@import "./colors.module.scss";
+@import "./common.module.scss";
+
+.title {
+  font-size: 45px;
+  font-weight: bold;
+  padding-bottom: 30px;
+}
+
+.btnColumn {}
+
+.renderForm {
+  @extend .commonButton;
+  display: block;
+  font-weight: bold;
+  width: 60%;
+  padding: 14px 0px;
+  margin: 0 auto;
+  border-width: 0 0 2px 0;
+  border-radius: 0;
+}
+
+.form {
+  max-width: 100%;
+  padding: 20px 0;
+  border: 1px solid $darkGray;
+  border-radius: 5px;
+}
+
+.formName {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-transform: uppercase;
+  width: 80%;
+  margin: 20px auto;
+}
+
+.nameAbbreviation {
+  @extend .commonUserAbbreviation;
+}
+
+.userName {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.memberTime {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.memberTimeText {
+  font-size: 14px;
+  color: $lightGray;
+}
+
+.memberTimeImg {
+  width: 20px;
+  height: auto;
+}
+
+.formLabel {
+  @extend .commonLabel;
+  padding-top: 0;
+}
+
+.inputGridDiv {
+  padding: 0 7%;
+}
+
+.inputGrid {
+  @extend .commonInput;
+  text-transform: uppercase;
+}
+
+.inputNormalDiv {
+  display: flex;
+  flex-direction: column;
+  padding: 0 7%;
+  margin-top: 20px;
+}
+
+.input {
+  @extend .commonInput;
+  text-transform: lowercase;
+}
+
+.formBtn {
+  @extend .commonButton;
+  font-size: 15px;
+  font-weight: bold;
+  width: fit-content;
+  margin: 10px auto 0px auto;
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 40px;
+    text-align: center;
+    line-height: 45px;
+    padding-bottom: 20px;
+  }
+}
+
+@media (max-width: 575px) {
+  .inputGridDiv {
+    padding: 0 5%;
+  }
+
+  .inputNormalDiv {
+    padding: 0 5%;
+  }
+}
+
+@media (max-width: 400px) {
+  .nameAbbreviation {
+    min-width: 60px;
+    min-height: 60px;
+    font-size: 30px;
+  }
+
+  .userName {
+    font-size: 25px;
+    line-height: 25px;
+    font-weight: bold;
+  }
+
+  .memberTimeText {
+    font-size: 12px;
+  }
+
+  .memberTimeImg {
+    width: 18px;
+  }
+}
