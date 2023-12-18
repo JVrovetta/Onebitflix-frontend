@@ -16,7 +16,7 @@ const SlideSection = ({ newestCourses }: props) => {
     <>
       <Container className="d-flex flex-column align-items-center py-5">
         <p className={styles.sectionTitle}>COURSES ALREADY AVAILABLE</p>
-        <SlideComponent courses={newestCourses} />
+        <SlideComponent courses={newestCourses} centralized />
         <Link href="/register" className={`btn btn-outline-light ${styles.slideSectionBtn}`}>
           REGISTER AND GET ACCESS
         </Link>

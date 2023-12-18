@@ -1,19 +1,17 @@
-"use client"
-
-// Services
-import categoriesService, { CategoryType } from "@/services/categoriesService"
+// Types
+import { CategoryType } from "@/services/categoriesService"
 // Components
-import useSWR from "swr"
 import CategoryCoursesSlide from "./CategoryCoursesSlide"
 
-const ListCategories = () => {
-  const { data, error } = useSWR("/listCategories", categoriesService.getCategories)
-  if (error) return error
-  if (!data) return (<p>Loading...</p>)
+interface props {
+  categories: CategoryType[]
+}
+
+const ListCategories = ({ categories }: props) => {
   return (
     <>
-      {data.data.categories.map((category: CategoryType) => (
-        <CategoryCoursesSlide categoryId={category.id} />
+      {categories.map((category: CategoryType) => (
+        <CategoryCoursesSlide key={category.id} categoryId={category.id} />
       ))}
     </>
   )

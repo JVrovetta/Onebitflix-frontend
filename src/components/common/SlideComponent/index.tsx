@@ -6,19 +6,21 @@ import { CourseType } from "@/services/couseService"
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import "@splidejs/splide/dist/css/splide.min.css";
 import SlideCard from "../SlideCards";
+import { Container } from "reactstrap";
 
 interface props {
   courses: CourseType[]
+  centralized?: boolean
 }
 
-const SlideComponent = ({ courses }: props) => {
+const SlideComponent = ({ courses, centralized = false }: props) => {
   let slideCount = 0
   if (courses.length > 4) slideCount = 4
   else if (courses) slideCount = courses.length
 
   return (
     <>
-      <div className="d-flex flex-column align-items-center py-4">
+      <Container className={`d-flex flex-column py-4 ${centralized ? "align-items-center" : ""}`}>
         <Splide options={{
           type: "loop",
           perPage: slideCount,
@@ -48,7 +50,7 @@ const SlideComponent = ({ courses }: props) => {
             </SplideSlide>
           ))}
         </Splide>
-      </div >
+      </Container>
     </>
   )
 }
