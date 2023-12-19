@@ -14,18 +14,11 @@
 }
 
 .userProfile {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 24px;
-  text-transform: uppercase;
-  color: #000000;
+  @extend .commonUserAbbreviation;
   margin-left: 14px;
+  font-size: 24px;
   min-width: 45px;
   min-height: 45px;
-  border-radius: 50%;
-  background-color: #ffffff;
   cursor: pointer;
 }
 
@@ -41,7 +34,7 @@
 }
 
 .modalUserProfile {
-  @extend .userProfile;
+  @extend .commonUserAbbreviation;
   font-size: 36px;
   min-width: 75px;
   min-height: 75px;

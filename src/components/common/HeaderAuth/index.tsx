@@ -2,6 +2,8 @@
 
 // Styles
 import styles from "./styles.module.scss"
+// Services
+import profileService, { UserPersonalDetatils } from "@/services/profileService"
 // Images
 import logoOnebitflix from "public/logoOnebitflix.svg"
 import iconSearch from "public/homeAuth/iconSearch.svg"
@@ -10,12 +12,19 @@ import Link from "next/link"
 import Image from "next/image"
 import { Container, Form, Input } from "reactstrap"
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 
 const HeaderAuth = () => {
   const router = useRouter()
   const [modalOpen, setModalOpen] = useState(false)
+  const [nameAbbreviation, setNameAbbreviation] = useState("")
+
+  useEffect(() => {
+    profileService.getCurrent().then(({ firstName, lastName }: UserPersonalDetatils) => {
+      setNameAbbreviation(`${firstName[0]}${lastName[0]}`)
+    })
+  }, [])
 
   const toggle = () => setModalOpen((isOpen) => !isOpen)
 
@@ -35,11 +44,11 @@ const HeaderAuth = () => {
             <Input name="search" type="search" placeholder="Research" className={styles.input} />
           </Form>
           <Image src={iconSearch} alt="searchIcon" className={styles.searchIcon} />
-          <p id="test" className={styles.userProfile} onClick={toggle}>JV</p>
+          <p id="test" className={styles.userProfile} onClick={toggle}>{nameAbbreviation}</p>
 
           <Modal isOpen={modalOpen} toggle={toggle} size="sm" contentClassName={styles.modal}>
             <ModalHeader className="d-flex justify-content-center">
-              <p className={styles.modalUserProfile}>JV</p>
+              <p className={styles.modalUserProfile}>{nameAbbreviation}</p>
             </ModalHeader>
             <ModalBody>
               <p>
