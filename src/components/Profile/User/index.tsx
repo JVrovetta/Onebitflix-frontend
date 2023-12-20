@@ -135,7 +135,7 @@ const UserForm = () => {
               type="email"
               placeholder="What is your best e-mail?"
               required
-              value={email}
+              value={email.toLowerCase()}
               onChange={(ev) => { setEmail(ev.currentTarget.value) }}
               className={styles.input} />
           </FormGroup>

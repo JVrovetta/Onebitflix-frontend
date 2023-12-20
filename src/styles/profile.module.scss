@@ -74,7 +74,6 @@
 
 .inputGrid {
   @extend .commonInput;
-  text-transform: uppercase;
 }
 
 .inputNormalDiv {
@@ -86,7 +85,6 @@
 
 .input {
   @extend .commonInput;
-  text-transform: lowercase;
 }
 
 .formBtn {
