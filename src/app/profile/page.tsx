@@ -16,14 +16,16 @@ const UserInfo = () => {
         <p className={styles.title}>Account Information</p>
         <Row className="pt-3 pb-5 row-gap-5">
           <Col md={4} className={styles.btnColumn}>
-            <Button onClick={() => { currentForm === "PASSWORD" ? setCurrentForm("USER") : null }}
+            <Button onClick={() => { currentForm === "PASSWORD" ? setCurrentForm("USER") : undefined }}
+              style={currentForm === "USER" ? { borderColor: "#ffffff" } : undefined}
               className={styles.renderForm}
               outline
               color="light"
             >
               PERSONAL DETAILS
             </Button>
-            <Button onClick={() => { currentForm === "USER" ? setCurrentForm("PASSWORD") : null }}
+            <Button onClick={() => { currentForm === "USER" ? setCurrentForm("PASSWORD") : undefined }}
+              style={currentForm === "PASSWORD" ? { borderColor: "#ffffff" } : undefined}
               className={styles.renderForm}
               outline
               color="light"
