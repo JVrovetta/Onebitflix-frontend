@@ -61,13 +61,16 @@ const UserForm = () => {
     }
   }
 
+  const firstFName = firstName === "" ? "XXXX" : firstName.split(" ")[0]
+  const firstLName = lastName === "" ? "XXXX" : lastName.split(" ")[0]
+
   return (
     <>
       <script src="https://jsuites.net/v4/jsuites.js"></script>
       <Form className={styles.form} onSubmit={handleUserUpdate}>
         <div className={styles.formName}>
-          <p className={styles.nameAbbreviation}>{`${firstName[0]}${lastName[0]}`}</p>
-          <p className={styles.userName}>{`${firstName.split(" ")[0]} ${lastName.split(" ")[0]}`}</p>
+          <p className={styles.nameAbbreviation}>{`${firstFName[0]}${firstLName[0]}`}</p>
+          <p className={styles.userName}>{`${firstFName} ${firstLName}`}</p>
         </div>
         <div className={styles.memberTime}>
           <Image src={iconUserAccount} alt="User Account Icon" className={styles.memberTimeImg} />

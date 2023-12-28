@@ -26,8 +26,8 @@ const RegisterForm = () => {
     event.preventDefault()
 
     const formData = new FormData(event.currentTarget)
-    const firstName = formData.get("firstName")!.toString()
-    const lastName = formData.get("lastName")!.toString()
+    const firstName = formData.get("firstName")!.toString().toUpperCase()
+    const lastName = formData.get("lastName")!.toString().toUpperCase()
     const phone = formData.get("phone")!.toString()
     const email = formData.get("email")!.toString()
     const birth = formData.get("birth")!.toString()
