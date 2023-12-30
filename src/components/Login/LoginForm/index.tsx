@@ -24,13 +24,21 @@ const LoginForm = () => {
 
   useEffect(() => {
     const registerSuccess = params.get('registred')
-    console.log(registerSuccess);
+    const emailUpdatedSuccess = params.get('emailUpdated')
+    const passwordUpdatedSuccess = params.get('passwordUpdated')
 
-    if (registerSuccess) {
+    if (registerSuccess || emailUpdatedSuccess || passwordUpdatedSuccess) {
       setToastIsOpen(true)
-      setTimeout(() => { setToastIsOpen(false) }, 1000 * 4)
-      setToastMessage("Account created successfully!")
+      setTimeout(() => { setToastIsOpen(false) }, 1000 * 6)
       setToastColor("bg-success")
+
+      if (registerSuccess) {
+        setToastMessage("Account created successfully!")
+      } else if (emailUpdatedSuccess) {
+        setToastMessage("Personal information updated successfully!")
+      } else if (passwordUpdatedSuccess) {
+        setToastMessage("Password updated successfully!")
+      }
     }
   }, [])
 

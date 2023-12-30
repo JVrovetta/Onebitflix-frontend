@@ -45,14 +45,14 @@ const UserForm = () => {
 
     const res = await profileService.userUpdate({ firstName, lastName, phone, email })
     if (res === 200) {
+      if (loginEmail !== email) {
+        sessionStorage.clear()
+        router.push("/auth/login?emailUpdated=true")
+      }
       setToastIsOpen(true);
       setTimeout(() => { setToastIsOpen(false) }, 1000 * 4)
       setToastMessage("Personal information updated successfully.")
       setToastColor("bg-success")
-      if (loginEmail !== email) {
-        sessionStorage.clear()
-        setTimeout(() => { router.push("/auth/login") }, 1000 * 2)
-      }
     } else {
       setToastIsOpen(true);
       setTimeout(() => { setToastIsOpen(false) }, 1000 * 4)
