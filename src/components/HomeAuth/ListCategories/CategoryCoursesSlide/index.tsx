@@ -8,6 +8,7 @@ import categoriesService from "@/services/categoriesService"
 import useSWR from "swr"
 import { Container } from "reactstrap"
 import SlideComponent from "@/components/common/SlideComponent"
+import Spinner from "@/components/common/Spinner"
 
 interface props {
   categoryId: number
@@ -16,7 +17,7 @@ interface props {
 const CategoryCoursesSlide = ({ categoryId }: props) => {
   const { data, error } = useSWR(`categoryCourses/${categoryId}`, (() => categoriesService.getCourses(categoryId)))
   if (error) return error
-  if (!data) return (<p>Loading...</p>)
+  if (!data) return <Spinner />
 
   if (data.data.courses.length > 0) {
     return (
