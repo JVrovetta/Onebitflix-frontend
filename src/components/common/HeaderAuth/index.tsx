@@ -12,13 +12,18 @@ import Link from "next/link"
 import Image from "next/image"
 import { Container, Form, Input } from "reactstrap"
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
-import { useEffect, useState } from "react"
+import { FormEvent, useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 
-const HeaderAuth = () => {
+interface props {
+  search?: string
+}
+
+const HeaderAuth = (props: props) => {
   const router = useRouter()
   const [modalOpen, setModalOpen] = useState(false)
   const [nameAbbreviation, setNameAbbreviation] = useState("")
+  const [searchName, setSearchName] = useState(() => props.search ? props.search : "")
 
   useEffect(() => {
     profileService.getCurrent().then(({ firstName, lastName }: UserPersonalDetatils) => {
@@ -33,6 +38,15 @@ const HeaderAuth = () => {
     router.push("/")
   }
 
+  const handleSearch = (ev: FormEvent<HTMLFormElement>) => {
+    ev.preventDefault()
+    if (searchName !== "") {
+      router.push(`/search?search=${searchName}`)
+    } else {
+      router.push(`/home`)
+    }
+  }
+
   return (
     <>
       <Container className="d-flex flex-wrap justify-content-center justify-content-sm-between align-items-center gap-3 py-4">
@@ -40,10 +54,19 @@ const HeaderAuth = () => {
           <Image src={logoOnebitflix} alt="logoOnebtflix" className={styles.logoNav} />
         </Link>
         <div className="d-flex align-items-center">
-          <Form>
-            <Input name="search" type="search" placeholder="Research" className={styles.input} />
+          <Form className="d-flex" onSubmit={handleSearch}>
+            <Input
+              name="search"
+              type="search"
+              placeholder="Research"
+              value={searchName}
+              onChange={(ev) => { setSearchName(ev.currentTarget.value.toLowerCase()) }}
+              className={styles.input}
+            />
+            <button type="submit" className={styles.searchButton}>
+              <Image src={iconSearch} alt="searchIcon" className={styles.searchIcon} />
+            </button>
           </Form>
-          <Image src={iconSearch} alt="searchIcon" className={styles.searchIcon} />
           <p id="test" className={styles.userProfile} onClick={toggle}>{nameAbbreviation}</p>
 
           <Modal isOpen={modalOpen} toggle={toggle} size="sm" contentClassName={styles.modal}>
