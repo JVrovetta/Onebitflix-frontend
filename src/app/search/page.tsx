@@ -14,7 +14,7 @@ const SearchPage = ({ searchParams }: { searchParams: { search: string } }) => {
         <div className="bg-black">
           <HeaderAuth search={searchParams.search} />
         </div>
-        <div className="flex-grow-1 mt-4">
+        <div className="flex-grow-1 my-4">
           <Search searchName={searchParams.search} />
         </div>
         <div className="bg-black">

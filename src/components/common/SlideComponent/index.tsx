@@ -5,7 +5,7 @@ import { CourseType } from "@/services/couseService"
 // Components
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import "@splidejs/splide/dist/css/splide.min.css";
-import SlideCard from "../SlideCards";
+import CourseCard from "../CourseCard";
 import { Container } from "reactstrap";
 
 interface props {
@@ -46,7 +46,7 @@ const SlideComponent = ({ courses, centralized = false }: props) => {
         }}>
           {courses?.map((course) => (
             <SplideSlide key={course.id}>
-              <SlideCard course={course} />
+              <CourseCard course={course} />
             </SplideSlide>
           ))}
         </Splide>

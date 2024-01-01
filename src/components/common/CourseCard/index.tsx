@@ -4,15 +4,17 @@ import styles from "./styles.module.scss"
 import { CourseType } from "@/services/couseService"
 // Components
 import Image from "next/image"
+import { CSSProperties } from "react"
 
 interface props {
   course: CourseType
+  style?: CSSProperties | undefined
 }
 
-const SlideCard = ({ course }: props) => {
+const CourseCard = ({ course, style }: props) => {
   return (
     <>
-      <div className={styles.slide}>
+      <div className={styles.slide} style={style}>
         <Image
           src={`${process.env.NEXT_PUBLIC_BASEURL}/${course.thumbnailUrl}`}
           alt={course.name}
@@ -27,4 +29,4 @@ const SlideCard = ({ course }: props) => {
   )
 }
 
-export default SlideCard
+export default CourseCard

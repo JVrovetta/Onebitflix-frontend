@@ -1,0 +1,12 @@
+@import "@/styles/colors.module.scss";
+
+.noSearchResult {
+  text-align: center;
+  font-size: 20px;
+  line-height: 25px;
+
+  strong {
+    font-size: 25px;
+    color: $lightRed;
+  }
+}
