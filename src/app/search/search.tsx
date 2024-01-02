@@ -11,7 +11,6 @@ import { useEffect, useState } from "react"
 import Image from "next/image"
 import { Container } from "reactstrap"
 import CourseCard from "@/components/common/CourseCard"
-import Link from "next/link"
 
 interface props {
   searchName: string
@@ -35,7 +34,7 @@ const Search = ({ searchName }: props) => {
         searchResult.length > 0 ?
           <Container className="d-flex flex-wrap justify-content-center justify-content-sm-start gap-4">
             {searchResult?.map((course) => (
-              <CourseCard course={course} href={`/courses/${course.id}`} style={{ marginLeft: 0 }} key={course.id} />
+              <CourseCard course={course} href={`/course/${course.id}`} style={{ marginLeft: 0 }} key={course.id} />
             ))}
           </Container>
           :

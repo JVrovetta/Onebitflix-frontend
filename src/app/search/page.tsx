@@ -1,7 +1,7 @@
 // Components
 import HeaderAuth from "@/components/common/HeaderAuth"
 import Footer from "@/components/common/Footer"
-import Search from "./search"
+import Search from "./Search"
 
 export const generateMetadata = async ({ searchParams }: { searchParams: { search: string } }) => {
   return { title: `Onebitflix - ${searchParams.search}` }
