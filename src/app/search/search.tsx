@@ -35,9 +35,7 @@ const Search = ({ searchName }: props) => {
         searchResult.length > 0 ?
           <Container className="d-flex flex-wrap justify-content-center justify-content-sm-start gap-4">
             {searchResult?.map((course) => (
-              <Link href={`/courses/${course.id}`} style={{ textDecoration: "none" }}>
-                <CourseCard course={course} style={{ marginLeft: 0 }} key={course.id} />
-              </Link>
+              <CourseCard course={course} href={`/courses/${course.id}`} style={{ marginLeft: 0 }} key={course.id} />
             ))}
           </Container>
           :

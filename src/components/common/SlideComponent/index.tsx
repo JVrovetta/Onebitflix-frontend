@@ -46,7 +46,7 @@ const SlideComponent = ({ courses, centralized = false }: props) => {
         }}>
           {courses?.map((course) => (
             <SplideSlide key={course.id}>
-              <CourseCard course={course} />
+              <CourseCard course={course} href={`/courses/${course.id}`} />
             </SplideSlide>
           ))}
         </Splide>
