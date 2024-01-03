@@ -26,6 +26,11 @@
   font-weight: bold;
   padding: 10px 35px;
   width: fit-content;
+  border-color: $lightRed;
+
+  &:hover {
+    border-color: $darkRed;
+  }
 }
 
 .buttonImg {

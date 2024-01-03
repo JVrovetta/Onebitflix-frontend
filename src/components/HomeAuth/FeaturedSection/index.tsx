@@ -6,8 +6,7 @@ import buttonPlay from "public/buttonPlay.svg"
 import { CourseType } from "@/services/couseService"
 // Components
 import { Container } from "reactstrap"
-import Link from "next/link"
-import Image from "next/image"
+import CoursePresentation from "@/components/common/CoursePresentation"
 
 interface props {
   course: CourseType
@@ -23,15 +22,9 @@ const FeaturedSection = ({ course }: props) => {
           backgroundPosition: "center",
           height: "480px"
         }}
-        key={course.id}
       >
         <Container className="text-center text-sm-start pt-5">
-          <p className={styles.title}>{course.name}</p>
-          <p className={styles.description}>{course.synopsis}</p>
-          <Link className={`btn btn-outline-light mx-auto mx-sm-0 ${styles.button}`} href={`/courses/${course.id}`}>
-            ACCESS NOW
-            <Image src={buttonPlay} alt="buttonPlay" className={styles.buttonImg} />
-          </Link>
+          <CoursePresentation course={course} btnConfig={{ href: `/courses/${course.id}`, text: "ACCESS NOW" }} />
         </Container>
       </div>
     </>
