@@ -1,6 +1,6 @@
 // Component
-import { Container } from "reactstrap"
 import Course from "./Course"
+import Footer from "@/components/common/Footer"
 
 export const generateMetadata = async ({ params }: { params: { id: string } }) => {
   return { title: `Onebitflix - ${params.id}` }
@@ -9,9 +9,14 @@ export const generateMetadata = async ({ params }: { params: { id: string } }) =
 const CoursePage = ({ params }: { params: { id: string } }) => {
   return (
     <>
-      <Container>
-        <Course courseId={+ params.id} />
-      </Container>
+      <main className="d-flex flex-column">
+        <div className="flex-grow-1">
+          <Course courseId={+ params.id} />
+        </div>
+        <div className="bg-black">
+          <Footer />
+        </div>
+      </main>
     </>
   )
 }

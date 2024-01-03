@@ -14,7 +14,7 @@ const categoriesService = {
     const res = await api.get("/categories", { headers: { Authorization: `Bearer ${token}` } }).catch((error) => {
       return error.response
     })
-    return res
+    return res.data.categories
   },
 
   getCourses: async (id: number) => {

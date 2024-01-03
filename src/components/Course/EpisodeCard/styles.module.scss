@@ -1,0 +1,56 @@
+@import "@/styles/colors.module.scss";
+
+.epCard {
+  width: 550px;
+  height: 190px;
+  padding: 10px 14px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  border: 1px solid $lightGray;
+  cursor: pointer;
+  transition: .3s;
+
+  &:hover {
+    height: 210px;
+    border-color: $lightRed;
+  }
+}
+
+.epOrder {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.epTime {
+  color: $lightGray;
+}
+
+.epTitle {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 560px) {
+  .epCard {
+    width: 95%;
+  }
+}
+
+@media (max-width: 400px) {
+  .epOrder {
+    font-size: 16px;
+  }
+
+  .epTime {
+    font-size: 14px;
+  }
+
+  .epTitle {
+    font-size: 18px;
+  }
+
+  .epDescription {
+    font-size: 14px;
+  }
+}

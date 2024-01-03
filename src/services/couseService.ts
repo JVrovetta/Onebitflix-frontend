@@ -15,6 +15,8 @@ export type CourseType = {
   thumbnailUrl: string
   synopsis: string
   episodes?: EpisodeType[]
+  favorited?: boolean
+  liked?: boolean
 }
 
 const coursesService = {
@@ -23,7 +25,7 @@ const coursesService = {
     const res = await api.get("/courses/featured", { headers: { Authorization: `Bearer ${token}` } }).catch((error) => {
       return error.response
     })
-    return res
+    return res.data
   },
 
   getNewestCourses: async () => {
@@ -31,7 +33,7 @@ const coursesService = {
     const res = await api.get("/courses/newest", { headers: { Authorization: `Bearer ${token}` } }).catch((error) => {
       return error.response
     })
-    return res
+    return res.data
   },
 
   addToFav: async (courseId: number | string) => {
@@ -55,7 +57,7 @@ const coursesService = {
     const res = await api.get("/favorites", { headers: { Authorization: `Bearer ${token}` } }).catch((error) => {
       return error.response
     })
-    return res
+    return res.data.courses
   },
 
   like: async (courseId: number | string) => {

@@ -1,0 +1,28 @@
+@import "@/styles/colors.module.scss";
+
+.courseInfo {
+  margin-top: -150px;
+}
+
+.interactions {
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.interactionImg {
+  width: 30px;
+  height: auto;
+  cursor: pointer;
+}
+
+.epDivision {
+  font-weight: bold;
+  padding: 3px 14px;
+  border-bottom: 1px solid $lightRed;
+}
+
+.epCount {
+  color: $lightGray;
+  padding: 3px 0;
+  margin-bottom: 40px;
+}
