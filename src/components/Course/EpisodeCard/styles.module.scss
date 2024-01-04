@@ -4,10 +4,9 @@
   width: 550px;
   height: 190px;
   padding: 10px 14px;
-  margin-bottom: 20px;
+  margin: 0 auto 20px auto;
   overflow: hidden;
   border: 1px solid $lightGray;
-  cursor: pointer;
   transition: .3s;
 
   &:hover {

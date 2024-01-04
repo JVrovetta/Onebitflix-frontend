@@ -1,0 +1,36 @@
+@import "@/styles/colors.module.scss";
+@import "@/styles/common.module.scss";
+
+.epTitle {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.player {
+  width: 100% !important;
+  height: auto !important;
+  margin: auto
+}
+
+.epButton {
+  @extend .commonButton;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-color: $lightRed;
+
+  &:hover {
+    border-color: $darkRed;
+  }
+}
+
+.epButtonImg {
+  width: 6px;
+  height: auto;
+}
+
+@media (max-width: 425px) {
+  .epTitle {
+    font-size: 20px;
+  }
+}

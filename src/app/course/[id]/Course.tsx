@@ -2,7 +2,7 @@
 
 // Style
 import styles from "@/styles/coursePage.module.scss"
-// Types
+// Service
 import coursesService, { CourseType } from "@/services/couseService"
 // Images
 import iconLike from "public/course/iconLike.svg"
@@ -17,6 +17,7 @@ import { useEffect, useState } from "react"
 import CoursePresentation from "@/components/common/CoursePresentation"
 import HeaderAuth from "@/components/common/HeaderAuth"
 import EpisodeCard from "@/components/Course/EpisodeCard"
+import Link from "next/link"
 
 interface props {
   courseId: number
@@ -67,7 +68,14 @@ const Course = ({ courseId }: props) => {
       </div>
       <Container>
         <div className={`text-center text-sm-start ${styles.courseInfo}`}>
-          <CoursePresentation course={course} btnConfig={{ text: "START WATCHING", href: "", disable: !hasEpisodes }} />
+          <CoursePresentation
+            course={course}
+            btnConfig={{
+              text: "START WATCHING",
+              href: hasEpisodes ? `/course/episode/${course.episodes![0].order - 1}?courseId=${course.id}` : "",
+              disable: !hasEpisodes
+            }}
+          />
           <div className={`d-flex justify-content-center justify-content-sm-start ${styles.interactions}`}>
             <Image
               src={liked ? iconLiked : iconLike}
@@ -89,7 +97,12 @@ const Course = ({ courseId }: props) => {
           {
             hasEpisodes ?
               course.episodes?.map((ep) => (
-                <EpisodeCard key={ep.id} episode={ep} />
+                <Link
+                  href={`/course/episode/${ep.order - 1}?courseId=${course.id}`}
+                  style={{ width: "100%" }}
+                >
+                  <EpisodeCard key={ep.id} episode={ep} />
+                </Link>
               ))
               :
               <p>This course doesn't have episodes yet. Please check back later. &#129302;</p>
