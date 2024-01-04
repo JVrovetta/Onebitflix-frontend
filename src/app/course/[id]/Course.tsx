@@ -72,7 +72,7 @@ const Course = ({ courseId }: props) => {
             course={course}
             btnConfig={{
               text: "START WATCHING",
-              href: hasEpisodes ? `/course/episode/${course.episodes![0].order - 1}?courseId=${course.id}` : "",
+              href: hasEpisodes ? `/course/episode/${course.episodes![0].order - 1}?courseId=${course.id}&episodeId=${course.episodes![0].id}` : "",
               disable: !hasEpisodes
             }}
           />
@@ -98,7 +98,7 @@ const Course = ({ courseId }: props) => {
             hasEpisodes ?
               course.episodes?.map((ep) => (
                 <Link
-                  href={`/course/episode/${ep.order - 1}?courseId=${course.id}`}
+                  href={`/course/episode/${ep.order - 1}?courseId=${course.id}&episodeId=${ep.id}`}
                   style={{ width: "100%" }}
                 >
                   <EpisodeCard key={ep.id} episode={ep} />
