@@ -99,7 +99,6 @@ const Course = ({ courseId }: props) => {
               course.episodes?.map((ep) => (
                 <Link
                   href={`/course/episode/${ep.order - 1}?courseId=${course.id}&episodeId=${ep.id}`}
-                  style={{ width: "100%" }}
                 >
                   <EpisodeCard key={ep.id} episode={ep} />
                 </Link>
