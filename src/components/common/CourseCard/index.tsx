@@ -5,19 +5,17 @@ import { CourseType } from "@/services/couseService"
 // Components
 import Image from "next/image"
 import Link from "next/link"
-import { CSSProperties } from "react"
 
 interface props {
   course: CourseType
   href: string
-  style?: CSSProperties | undefined
 }
 
-const CourseCard = ({ course, href, style }: props) => {
+const CourseCard = ({ course, href }: props) => {
   return (
     <>
       <Link href={href} style={{ textDecoration: "none" }}>
-        <div className={styles.slide} style={style}>
+        <div className={styles.slide}>
           <Image
             src={`${process.env.NEXT_PUBLIC_BASEURL}/${course.thumbnailUrl}`}
             alt={course.name}

@@ -14,9 +14,9 @@ interface props {
 const SlideSection = ({ newestCourses }: props) => {
   return (
     <>
-      <Container className="d-flex flex-column align-items-center py-5">
+      <Container className="d-flex flex-column align-items-center gap-4 py-5">
         <p className={styles.sectionTitle}>COURSES ALREADY AVAILABLE</p>
-        <SlideComponent courses={newestCourses} centralized />
+        <SlideComponent courses={newestCourses} />
         <Link href="/register" className={`btn btn-outline-light ${styles.slideSectionBtn}`}>
           REGISTER AND GET ACCESS
         </Link>

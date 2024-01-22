@@ -1,55 +1,45 @@
 "use client"
 
+// Styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 // Types
 import { CourseType } from "@/services/couseService"
 // Components
-import { Splide, SplideSlide } from '@splidejs/react-splide';
-import "@splidejs/splide/dist/css/splide.min.css";
+import React, { useRef, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
 import CourseCard from "../CourseCard";
 import { Container } from "reactstrap";
 
+
 interface props {
   courses: CourseType[]
-  centralized?: boolean
 }
 
-const SlideComponent = ({ courses, centralized = false }: props) => {
-  let slideCount = 0
-  if (courses.length > 4) slideCount = 4
-  else if (courses) slideCount = courses.length
-
+const SlideComponent = ({ courses }: props) => {
   return (
     <>
-      <Container className={`d-flex flex-column py-4 ${centralized ? "align-items-center" : ""}`}>
-        <Splide options={{
-          type: "loop",
-          perPage: slideCount,
-          perMove: 1,
-          pagination: false,
-          width: slideCount * 300,
-          arrows: courses.length > 4 ? true : false,
-          drag: courses.length > 4 ? true : false,
-          breakpoints: {
-            1200: {
-              perPage: slideCount >= 2 ? 2 : 1,
-              width: slideCount >= 2 ? 600 : 300,
-              arrows: courses.length > 2 ? true : false,
-              drag: courses.length > 2 ? true : false,
-            },
-            600: {
-              perPage: 1,
-              width: 300,
-              arrows: courses.length > 1 ? true : false,
-              drag: courses.length > 1 ? true : false,
-            }
-          }
-        }}>
+      <Container className={`d-flex flex-column py-4}`}>
+        <Swiper
+          slidesPerView={'auto'}
+          spaceBetween={30}
+          cssMode={true}
+          navigation={true}
+          pagination={true}
+          mousewheel={true}
+          keyboard={true}
+          loop={true}
+          modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+          style={{ width: "100%", height: "100%" }}
+        >
           {courses?.map((course) => (
-            <SplideSlide key={course.id}>
+            <SwiperSlide key={course.id} style={{ width: "fit-content" }}>
               <CourseCard course={course} href={`/course/${course.id}`} />
-            </SplideSlide>
+            </SwiperSlide>
           ))}
-        </Splide>
+        </Swiper>
       </Container>
     </>
   )
